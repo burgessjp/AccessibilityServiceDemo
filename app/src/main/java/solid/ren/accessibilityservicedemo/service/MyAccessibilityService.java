@@ -1,13 +1,9 @@
-package solid.ren.accessibilityservicedemo;
+package solid.ren.accessibilityservicedemo.service;
 
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityNodeInfo;
-
-import java.util.List;
-
 /**
  * Created by _SOLID
  * Date:2016/7/20
@@ -23,7 +19,6 @@ public class MyAccessibilityService extends AccessibilityService {
         log("packageName:" + event.getPackageName() + "");
         log("source class:" + event.getClassName() + "");
         log("event type(int):" + eventType + "");
-
 
         switch (eventType) {
             case AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED:// 通知栏事件
@@ -89,18 +84,5 @@ public class MyAccessibilityService extends AccessibilityService {
     }
 
 
-    private void findAndPerformAction(String text) {
-        // 查找当前窗口中包含“安装”文字的按钮
-        if (getRootInActiveWindow() == null)
-            return;
-        //通过文字找到当前的节点
-        List<AccessibilityNodeInfo> nodes = getRootInActiveWindow().findAccessibilityNodeInfosByText(text);
-        for (int i = 0; i < nodes.size(); i++) {
-            AccessibilityNodeInfo node = nodes.get(i);
-            // 执行按钮点击行为
-            if (node.getClassName().equals("android.widget.Button") && node.isEnabled()) {
-                node.performAction(AccessibilityNodeInfo.ACTION_CLICK);
-            }
-        }
-    }
+
 }

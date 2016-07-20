@@ -1,4 +1,4 @@
-package solid.ren.accessibilityservicedemo;
+package solid.ren.accessibilityservicedemo.service;
 
 import android.accessibilityservice.AccessibilityService;
 import android.annotation.SuppressLint;
