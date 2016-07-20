@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AccessibilityServiceDemo</string>
+    <string name="accessibility_description">auto reply for wei chat</string>
+</resources>
