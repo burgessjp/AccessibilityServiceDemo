@@ -17,31 +17,17 @@ import solid.ren.accessibilityservicedemo.PrintUtils;
  */
 public class AutoInstallService extends AccessibilityService {
 
-    String packages[] = {"com.android.packageinstaller"};
-
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
-        Log.i("test", "event type:" + event.getEventType());
         PrintUtils.printEvent(event);
         findAndPerformActionButton("继续");
         findAndPerformActionTextView("下一步");
         findAndPerformActionTextView("安装");
     }
 
-    @Override
-    protected void onServiceConnected() {
-        super.onServiceConnected();
-        PrintUtils.log("onServiceConnected");
-    }
-
-    @Override
-    public void onInterrupt() {
-        PrintUtils.log("onInterrupt");
-    }
 
     private void findAndPerformActionButton(String text) {
-        // 查找当前窗口中包含“安装”文字的按钮
-        if (getRootInActiveWindow() == null)
+        if (getRootInActiveWindow() == null)//取得当前激活窗体的根节点
             return;
         //通过文字找到当前的节点
         List<AccessibilityNodeInfo> nodes = getRootInActiveWindow().findAccessibilityNodeInfosByText(text);
@@ -55,7 +41,6 @@ public class AutoInstallService extends AccessibilityService {
     }
 
     private void findAndPerformActionTextView(String text) {
-        // 查找当前窗口中包含“安装”文字的按钮
         if (getRootInActiveWindow() == null)
             return;
         //通过文字找到当前的节点
@@ -68,4 +53,17 @@ public class AutoInstallService extends AccessibilityService {
             }
         }
     }
+
+    @Override
+    protected void onServiceConnected() {
+        super.onServiceConnected();
+        PrintUtils.log("onServiceConnected");
+    }
+
+    @Override
+    public void onInterrupt() {
+        PrintUtils.log("onInterrupt");
+    }
+
+
 }

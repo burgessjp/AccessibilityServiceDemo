@@ -1,6 +1,7 @@
 package solid.ren.accessibilityservicedemo.service;
 
 import android.accessibilityservice.AccessibilityService;
+import android.accessibilityservice.AccessibilityServiceInfo;
 import android.view.accessibility.AccessibilityEvent;
 
 import solid.ren.accessibilityservicedemo.PrintUtils;
