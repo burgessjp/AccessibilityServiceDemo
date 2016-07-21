@@ -9,8 +9,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="solid.ren.accessibilityservicedemo.MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btn_open_service"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Open Service" />
 </RelativeLayout>

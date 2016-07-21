@@ -40,8 +40,21 @@
         <!--android:resource="@xml/auto_reply_service_config" />-->
         <!--</service>-->
 
+        <service
+        android:name=".service.MyAccessibilityService"
+        android:enabled="true"
+        android:exported="true"
+        android:label="@string/app_name"
+        android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+        <intent-filter>
+        <action android:name="android.accessibilityservice.AccessibilityService" />
+        </intent-filter>
+        <meta-data
+        android:name="android.accessibilityservice"
+        android:resource="@xml/my_services_config" />
+        </service>
         <!--<service-->
-            <!--android:name=".service.MyAccessibilityService"-->
+            <!--android:name=".service.AutoInstallService"-->
             <!--android:enabled="true"-->
             <!--android:exported="true"-->
             <!--android:label="@string/app_name"-->
@@ -49,19 +62,11 @@
             <!--<intent-filter>-->
                 <!--<action android:name="android.accessibilityservice.AccessibilityService" />-->
             <!--</intent-filter>-->
+            <!--<meta-data-->
+                <!--android:name="android.accessibilityservice"-->
+                <!--android:resource="@xml/auto_install_services_config" />-->
 
         <!--</service>-->
-        <service
-            android:name=".service.AutoInstallService"
-            android:enabled="true"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
-            <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
-            </intent-filter>
-
-        </service>
     </application>
 
 </manifest>
